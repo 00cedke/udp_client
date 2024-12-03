@@ -1,8 +1,7 @@
 import asyncio
 import socket
 
-SERVER = 127.0.0.1
-PORT = 6000
+from config import Config
 
 class UDPClient:
   async def handle_client(data, addr, server_socket):
@@ -12,7 +11,7 @@ class UDPClient:
 
 async def main():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    server_socket.bind((SERVER, PORT))
+    server_socket.bind((Config.SERVER, Config.PORT))
     server_socket.setblocking(False)
     
     loop = asyncio.get_event_loop()
