@@ -2,12 +2,7 @@ import asyncio
 import socket
 
 from config import Config
-
-class UDPClient:
-  async def handle_client(data, addr, server_socket):
-      print(f"Message received from {addr}: {data.decode()}")
-      server_socket.sendto("Message received".encode(), addr)
-
+from udp_client import UDPClient
 
 async def main():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
